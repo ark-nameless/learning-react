@@ -4,10 +4,34 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import "primereact/resources/themes/lara-light-indigo/theme.css";     
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";   
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
+
+
+const router = createBrowserRouter ([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />
+  }
+]);
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
